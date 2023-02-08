@@ -2,5 +2,6 @@
   
 | Analysis/Figures/Tables                 | Section in the manuscript    | Name of the Github folder |	
 | :------------------------ |:-------------:| :-------------|
-| Data pre-processing	       |	   Data pre-processing and QC        |    XX
+| Fig 1A |	Study cohort and proteogenomic profiling| XX
+| Fig 1B	| Genomic alterations and their association with chemo-refractoriness| XX
 
