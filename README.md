@@ -1,4 +1,4 @@
-### Arguments for dagbagM::hc and dagbagM::hc_boot_parallel
+### Table summarizing the codes available in this repository for the respective analysis/figures/tables
   
 | Analysis/Figures/Tables                 | Section in the manuscript    | Name of the Github folder |	
 | :------------------------ |:-------------:| :-------------|
