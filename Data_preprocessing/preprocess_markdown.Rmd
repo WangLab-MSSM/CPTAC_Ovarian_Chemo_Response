@@ -1,0 +1,142 @@
+---
+title: "Data Pre-processing"
+author: "Shrabanti Chowdhury"
+date: "August 18, 2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+
+This is the code for pre-processing global and phospho-proteomics data. 
+
+Load the following libraries and source the functions for pre-processing:
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(sva))
+suppressPackageStartupMessages(library(impute))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(ggpubr))
+suppressPackageStartupMessages(library(ICC))
+# install_github("WangLab-MSSM/DreamAI/Code")
+# suppressPackageStartupMessages(library(DreamAI))
+
+source("preprocessing.R")
+```
+
+Below are the parameters that user need to specify:
+```{r}
+num.tmt<- 21
+num.samples.per.tmt<- 8 ########## without bridge 
+extra.col.index<- c(1:5,237)
+ref.bridge<- "FFPE.bridge"
+```
+
+Read the data in r, remove the extra columns containing gene symbols, protein Ids etc. and store them in a separate matrix
+
+```{r}
+data.raw<-read.csv("FFPE_abund.tsv", sep="\t", header=T)
+data<-data.raw[,-extra.col.index]
+data.other.cols<-data.raw[,extra.col.index]
+```
+
+Read the sample annotation table in r and rename the columns of the data matrix according to the sample labels in sample annotation table
+
+```{r}
+sample.anno<- read.csv("samples_FFPE_Aug19.csv")
+sample.anno$Tumor.Response[sample.anno$Tumor.Response=="Sensitive"]<- "sensitive"
+sample.anno$Tumor.Response[sample.anno$Tumor.Response=="Refractory"]<- "refractory"
+
+data<- col.name(data=data, sample.anno = sample.anno)
+```
+
+
+The pre-processing includes the following 4 steps (median alignment already done): 
+
+1. TMT outlier removal
+2. Filtering out proteins with at least 50% missing in both Sensitive or refractory samples
+3. Batch correction
+4. Imputation
+
+
+
+Step0: Remove Ref intensity (FFPE bridge) samples
+
+```{r}
+data.normalized<- data[,1:210]
+boxplot(data.normalized, col=rep(1:21, each=10), ylim=c(19,24))
+
+```
+
+Step1: TMT outlier removal
+
+```{r}
+data.no.tmt.out<- TMT.out.rem(data=data.normalized, thresh = 10^(-10))
+```
+
+Step2: Missing filtering
+
+```{r}
+temp<- missing.filt(data=data.no.tmt.out, other.cols = data.other.cols, sample.anno = sample.anno)
+data.filt<- temp$data
+
+data.filt.other.cols<- temp$other 
+```
+
+Batch effect diagnosis (PC plots)
+
+```{r}
+batch.check.pc(data=data.filt)
+```
+
+Batch effect diagnosis (ICC score distribution)
+
+```{r}
+
+icc<- batch.check.icc(data = data.filt)
+hist(icc.vec, main = "Histogram of ICC score")
+
+```
+
+Step3: Batch correction
+
+```{r}
+data.batch.corrected<- batch.corr(data=data.filt)
+
+```
+
+Step4: Imputation (Takes ~ 6-7 hours)
+
+```{r}
+
+result.impute<- DreamAI_Bagging(data=data, k=10, maxiter_MF = 10, ntree = 100, maxnodes =NULL, maxiter_ADMIN=30, tol=10^(-2), gamma_ADMIN=0, gamma=50, CV=T, fillmethod="row_mean", maxiter_RegImpute=10,conv_nrmse = 1e-6,iter_SpectroFM=40,method = c("KNN", "MissForest", "ADMIN", "Brinn", "SpectroFM", "RegImpute"),out=c("Ensemble"),SamplesPerBatch=8,n.bag=1,save.out=TRUE,path=NULL,ProcessNum=1)
+
+
+imputed.data<- result$Ensemble
+
+```
+
+Append data with other columns to share
+
+```{r}
+
+normalized.share<- append(data=data.normalized, other.cols = data.other.cols)
+batch.corrected.missing.filt.share<- append(data=data.batch.corrected, other.cols = data.filt.other.cols)
+imputed.share<- append(data=imputed.data, other.cols = data.filt.other.cols)
+
+```
+
+write.table(normalized.share,file="FFPE_UM_normalized.tsv",sep="\t",quote = F,row.names = F, col.names = T)
+write.table(batch.corrected.missing.filt.share,file="FFPE_UM_batchcorrected.tsv",sep="\t",quote = F,row.names = F, col.names = T)
+write.table(imputed.share,file="FFPE_UM_imputed.tsv",sep="\t",quote = F,row.names = F, col.names = T)
+
+############ tidyverse tsv save #################
+write_tsv(normalized.share, "FFPE_UM_normalized_Jan13.tsv", na = "NA", append = FALSE, col_names = T, quote_escape = "double")
+
+write_tsv(batch.corrected.missing.filt.share, "FFPE_UM_batchcorrected.tsv", na = "NA", append = FALSE, col_names = T, quote_escape = "double")
+
+write_tsv(imputed.share, "FFPE_UM_imputed.tsv", na = "NA", append = FALSE, col_names = T, quote_escape = "double")
