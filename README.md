@@ -2,5 +2,5 @@
   
 | Analysis/Figures/Tables                 | Section in the manuscript    | Name of the Github folder |	
 | :------------------------ |:-------------:| :-------------|
-| Data Pre-processing	       |	   Data pre-processing and QC        |    XX
+| Data pre-processing	       |	   Data pre-processing and QC        |    XX
 
