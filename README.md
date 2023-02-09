@@ -33,6 +33,37 @@
 | Fig 2J | Bi-allelic and functional TP53 inactivation is associated with chemo-sensitivity | TP53 |
 | Fig S2J | Bi-allelic and functional TP53 inactivation is associated with chemo-sensitivity | TP53 |
 | Fig 2K-N | Proteins associated with chemotherapy response in tumors stratified by Chr17-LOH, BRCA1/2, and TP53 mutations | Trans-regulation |
+| Fig 3A | Genetic factors predictive of refractoriness | Prediction-refractoriness |
+| Fig 3B | Genetic factors predictive of refractoriness | Prediction-refractoriness |
+| Fig 3C | Genetic factors predictive of refractoriness | Prediction-refractoriness |
+| Fig S3A-B | Genetic factors predictive of refractoriness | Prediction-refractoriness |
+| Fig S3C | Genetic factors predictive of refractoriness | Prediction-refractoriness |
+| Fig 3D | A protein panel predictive of refractoriness | Prediction-refractoriness |
+| Fig S3D-E | A protein panel predictive of refractoriness | Prediction-refractoriness |
+| Fig S3F-G | A proteogenomic panel predictive of refractoriness | Prediction-refractoriness |
+| Fig 4A | Protein pathway enrichment analysis shows diverse processes associated with refractoriness | Response-Associatoin-Pathway |
+| Fig S4A-B | Protein pathway enrichment analysis shows diverse processes associated with refractoriness | Response-Associatoin-Pathway |
+| Fig 4B | Protein-based pathway scores reveal five distinct HGSOC tumor clusters that are validated in two independent patient cohorts and PDX models| Clustering|
+| Fig 4C | Protein-based pathway scores reveal five distinct HGSOC tumor clusters that are validated in two independent patient cohorts and PDX models| Clustering|
+| Fig S4C-D | Protein-based pathway scores reveal five distinct HGSOC tumor clusters that are validated in two independent patient cohorts and PDX models| Clustering|
+| Fig 4D-F | Protein-based pathway scores reveal five distinct HGSOC tumor clusters that are validated in two independent patient cohorts and PDX models| Clustering|
+| Fig S4E-F | Protein-based pathway scores reveal five distinct HGSOC tumor clusters that are validated in two independent patient cohorts and PDX models| Clustering|
+| Fig 5A-D | Protein-based pathway scores reveal five distinct HGSOC tumor clusters that are validated in two independent patient cohorts and PDX models| Clustering|
+| Fig S5A-E | Protein-based pathway scores reveal five distinct HGSOC tumor clusters that are validated in two independent patient cohorts and PDX models| Clustering|
+| Fig 6A-E | Characterization of immune infiltration | Immune-infiltration |
+| Fig S6A-D | Characterization of immune infiltration | Immune-infiltration |
+| Fig 7A-F | Association of TGFβ, alt-EJ, and βAlt signatures with cluster and treatment response | TGFbeta |
+| Fig S7A-E | Association of TGFβ, alt-EJ, and βAlt signatures with cluster and treatment response | TGFbeta |
+
+
+
+
+
+
+
+
+
+
 
 
 
