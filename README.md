@@ -2,7 +2,7 @@
   
 | Analysis/Figures/Tables                 | Section in the manuscript    | Name of the Github folder |	
 | :------------------------: |:-------------:| :-------------: |
-| Fig 1A |	Study cohort and proteogenomic profiling| Cohort_OmicsData_Overview |
+| Fig 1A |	Study cohort and proteogenomic profiling| Preprocessing |
 | Data Pre-processing | STAR Method | Preprocessing |
 | FFPE-Frozen data alignment| STAR Method | Preprocessing |
 | Fig S1A,B,C,E,F,G | STAR Method | Preprocessing |
