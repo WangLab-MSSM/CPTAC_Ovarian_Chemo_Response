@@ -1,10 +1,10 @@
 ############################################################
-## title: "Figure S1E_F_G"
+## title: "Figure S1H_I_J"
 ## author: "Oscar Murillo"
 ## date: "August 18, 2020"
 ############################################################
 ############################################################
-## Figure S1E
+## Figure S1I
 ############################################################
 FD.RNA.quality = read.table("ovarian-dna-qc-formatted.txt", header = TRUE, quote="\"", check.names = FALSE, sep = "\t", row.names = NULL)
 
@@ -59,7 +59,7 @@ ggarrange(RNA.response, RNA.age, RNA.source,
 dev.off()
 
 ############################################################
-## Figure S1F
+## Figure S1J
 ############################################################
 FD.DNA.quality = read.table("CPTAC3 - Ovaria - DNA WGS Quality.txt", header = TRUE, quote="\"", check.names = FALSE, sep = "\t", row.names = NULL)
 
@@ -113,7 +113,7 @@ ggarrange(DNA.response, DNA.age, DNA.source,
 dev.off()
 
 ############################################################
-## Figure S1G
+## Figure S1H
 ############################################################
 FD.protein.quality = read.table("quality/Protein_Quality_20211018.txt", header = TRUE, quote="\"", check.names = FALSE, sep = "\t", row.names = NULL)
 FD.protein.quality = FD.protein.quality[,1:12]
