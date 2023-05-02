@@ -6,11 +6,12 @@
 | Data Pre-processing | STAR Method | Preprocessing |
 | FFPE-Frozen data alignment| STAR Method | Preprocessing |
 | Fig S1A,B,C,E,F,G | STAR Method | Preprocessing |
+| Fig S1H,I,J | STAR Method | Preprocessing |
 | Fig 1B,C,D	| Genomic alterations and their association with chemo-refractoriness| Response-Associatoin-Mut-LOH |
-| Fig S1H	| Genomic alterations and their association with chemo-refractoriness| Response-Associatoin-Mut-LOH |
+| Fig S1K	| Genomic alterations and their association with chemo-refractoriness| Response-Associatoin-Mut-LOH |
 | Fig 1E | Transcripts, proteins, and CNVs associated with chemo-refractoriness | Response-Associatoin-CNV-RNA-protein |
 | Fig 1F,G | Integrative analysis (CNV, RNA, protein) identifies chemotherapy response-associated genes | Response-Associatoin-CNV-RNA-protein |
-| Fig S1I | Integrative analysis (CNV, RNA, protein) identifies chemotherapy response-associated genes | Response-Associatoin-CNV-RNA-protein |
+| Fig S1L | Integrative analysis (CNV, RNA, protein) identifies chemotherapy response-associated genes | Response-Associatoin-CNV-RNA-protein |
 | Fig 2A,B | Cis regulation between CNV, RNA, and protein differs between sensitive and refractory tumors | Cis-regulation |
 | Fig S2A | Cis regulation between CNV, RNA, and protein differs between sensitive and refractory tumors | Cis-regulation |
 | Fig S2B | Chromosome 17 loss-of-heterozygosity (Chr17-LOH) is associated with chemo-sensitivity | Chr17LOH |
