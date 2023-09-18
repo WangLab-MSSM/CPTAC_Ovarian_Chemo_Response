@@ -26,13 +26,12 @@ if (Net==2) perm=imp.perm.2
 I<-sort(importance[,Net+2],decreasing=T)
 TH=1E-4
 
-for (j in 1000:30000){
+for (j in 10:30000){
   FDR[j,Net]<-((sum(perm>I[j])/dim(perm)[2]))/j
   if (FDR[j,Net]>TH) break
   print(c(j,FDR[j,Net]))
 }
 
-# -- delete location associationi
 index<-grep("Location",importance[,1])
 importance<-importance[-index,]
 

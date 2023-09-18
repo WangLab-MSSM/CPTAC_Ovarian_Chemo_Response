@@ -30,4 +30,4 @@
   
   out.new<-iJRFNet_permutation(X=list(data.R,data.S),genes.name=c(rownames(data.R)), model="iJRF",seed=perm.seed,to.store=100000)
 
-    save(iJRF_results_perm_",perm.seed,".rda",sep="")) # -- save on file importance scores
+    save(paste0("iJRF_results_perm_",perm.seed,".rda",sep="")) # -- save importance scores
