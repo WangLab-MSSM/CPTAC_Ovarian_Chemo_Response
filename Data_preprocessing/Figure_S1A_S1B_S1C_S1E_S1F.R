@@ -90,3 +90,5 @@ row.miss<- apply(data.nocb,1, function(x) mean(is.na(x)))
 
 hist(row.miss, xlab="Missing rate per phosphosite", main = "Distribution of missing
 rate per phosphosite")
+
+########## S1G was generated using excel ############
